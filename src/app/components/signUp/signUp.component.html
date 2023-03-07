@@ -1,0 +1,54 @@
+<body class="text-center">
+    <main class="form-signin">
+      <form [formGroup]="signUpForm">
+        <h1 class="h3 mb-3 fw-normal" style="color: silver;">Sign Up</h1>
+    
+        <div class="form-floating mb-2">
+          <input type="text" 
+          formControlName="firstName" 
+          class="form-control"
+          style="color: silver; background: rgba(27,26,38,0.3)"
+          id="firstName" 
+          placeholder="First Name">
+          <label for="firstName" style="color: silver;">First Name</label>
+        </div>
+    
+        <div class="form-floating mb-2" style="color: silver; background: rgba(27,26,38,0.3)">
+          <input type="text"
+           formControlName="lastName" 
+           class="form-control" 
+           style="color: white; background: rgba(27,26,38,0.3)"
+           id="lastName" 
+           placeholder="Last Name">
+          <label for="lastName">Last Name</label>
+        </div>
+    
+        <div class="form-floating mb-2" style="color: silver; background: rgba(27,26,38,0.3)">
+          <input type="email"
+           formControlName="email"
+            class="form-control" 
+            style="color: white; background: rgba(27,26,38,0.3)"
+            id="email" 
+            placeholder="name@example.com">
+          <label for="email" style="color: silver;">E-mail</label>
+        </div>
+    
+        <div class="form-floating mb-2" style="color: silver; background: rgba(27,26,38,0.3)">
+          <input type="password" 
+          formControlName="password" 
+          class="form-control" 
+          style="color: silver; background: rgba(27,26,38,0.3)"
+          id="password" 
+          placeholder="Password">
+          <label for="password" style="color: silver;">Password</label>
+        </div>
+    
+        <button class="w-100 btn btn-md btn btn-primary" 
+        style="color: White; background: rgba(5, 5, 49, 0.835)"
+         type="submit" (click)="signUp()"
+        [disabled]="!signUpForm.valid">Sign Up
+      </button>
+        <p class="mt-5 mb-3 text-muted" >&copy; 2022-2023</p>
+      </form>
+    </main>
+    </body>

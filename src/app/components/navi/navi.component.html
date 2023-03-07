@@ -1,0 +1,53 @@
+<header class="navbar navbar-expand-lg navbar-transparent" style="background-color:transparent; font-weight: bold; font-family:Times New Roman;">
+  <div class="container">
+    <a class="navbar-brand still col-md-3 col-lg-2 me-0 px-3 btn btn-outline-dark" style="color: silver; background: rgba(5, 5, 49, 0.836)" routerLink="cars">CAR RENTAL</a>
+  
+    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" >
+
+    <li class="nav-item">
+      <a  class="nav-link btn btn-outline-dark"  style="color: silver; background: rgba(5, 5, 49, 0.836)" href="">HOME</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link btn btn-outline-dark" style="color: silver; background: rgba(5, 5, 49, 0.836)" href="/about"> ABOUT </a>
+    </li> 
+  </ul>
+
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse"
+    data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="row offset-8 col-md-2">
+
+    <div class="col-md-6" style="float: right">
+      <button *ngIf="!isAuthenticated()" type="button" class="btn btn-outline-dark" style="color: silver; background: rgba(5, 5, 49, 0.836)" routerLink="/signin">
+        Sign In
+      </button>
+    </div>
+
+
+    <div class="col-md-6" style="float: right">
+      <button *ngIf="!isAuthenticated()" type="button" class="btn btn-outline-dark" style="color: silver; background: rgba(5, 5, 49, 0.836)"routerLink="signup">
+        Sign Up
+      </button>
+    </div>
+
+
+    <div class="btn-group" style="margin-left: -15px" *ngIf="isAuthenticated()"> 
+      <button class="btn btn-outline-dark dropdown-toggle" style="color: silver; background: rgba(5, 5, 49, 0.836)" type="button" data-bs-toggle="dropdown"
+        aria-expanded="false">{{userInfo?.firstName}}</button>
+
+
+      <ul class="dropdown-menu w-100 text-center" style="color: silver; background: rgba(27,26,38,0.3)">
+        <li class="btn dropdown-item w-100 text-center">
+          Edit Profile
+        </li>
+        <li class="btn dropdown-item  w-100 text-center"  (click)="logout()">Logout</li>
+      </ul>
+    </div>
+  </div>
+  <br />
+  </div>
+</header>

@@ -1,0 +1,8 @@
+<ul style="color: silver; background: rgba(27,26,38,0.3);" class="list-group btn-outline-dark ">
+  <li style="color: silver; background: rgba(5, 5, 49, 0.836);" (click)="clearCurrentColor()" routerLink="/colors" [class]="getAllColorClass() " > All Colors</li>
+  <li class="btn-outline-dark" style="color: silver; background: rgba(27,26,38,0.3);" (click)="setCurrentColor(color)" *ngFor="let color of colors" 
+  routerLink="/cars/color/{{color.colorId}}" 
+  [class]="getCurrentColorClass(color)">
+  {{color.colorName}}</li>
+</ul>
+

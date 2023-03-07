@@ -1,0 +1,107 @@
+<div class="row btn-outline-dark" style="font-family: 'Times New Roman', Times, serif;">
+  <div class="col-md-2 ">
+    <input
+      type="text"
+      [(ngModel)]="filterText"
+      class="form-control btn btn-outline-dark"
+      style="color: silver; background: rgba(5, 5, 49, 0.800);"
+      id="filterText"
+      placeholder="Search..."
+    />
+  </div>
+
+  <div *ngIf="filterText.length > 2" class="col-md-2 alert alert-success" role="alert">
+    {{ filterText }} searched
+  </div>
+
+  <div class="col-md-2">
+    <select
+      [(ngModel)]="branddFilter"
+      class="form-select  btn btn-outline-dark"
+      style="color: silver; background: rgba(5, 5, 49, 0.836);"
+      aria-label="Choose Brand"
+    >
+      <option value="0">Brand</option>
+      <option [value]="brand.brandName"  *ngFor="let brand of brands">
+        {{ brand.brandName }}
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-2">
+    <select
+      [(ngModel)]="colorrFilter"
+      class="form-select btn btn-outline-dark"
+      style="color: silver; background: rgba(5, 5, 49, 0.836);"
+      aria-label="Default select example"
+    >
+      <option value="0">Color</option>
+      <option [value]="color.colorId" *ngFor="let color of colors">
+        {{ color.colorName }}
+      </option>
+    </select>
+  </div>
+
+  <div class="col-md-2"  > 
+    <button
+      routerLink="/cars/color/{{ colorrFilter }}/brand/{{ branddFilter }}"
+      style="color: silver; background: rgba(5, 5, 49, 0.836); width: 100%"
+      class="btn btn-outline-dark" 
+      type="button"
+    >
+      Filter
+    </button>
+  </div>
+</div>
+
+<hr />
+
+<div class="row ml-3">
+  <div class="col-sm-12 col-md-12 col-lg-4 mb-2"  *ngFor="let car of cars">
+    <div class="card"style=" background: rgba(27,26,38,0.3);" >
+      <img
+        *ngIf="car.imagePath"
+        [src]="imageUrl + car.imagePath"
+        class="card-img-top"
+        style="object-fit: cover"
+        width="100"
+        height="150"
+        alt="..."
+      />
+
+      <img
+        *ngIf="!car.imagePath"
+        [src]="imageUrl + 'default.jpg'"
+        class="card-img-top"
+        style="object-fit: cover"
+        width="100"
+        height="250"
+        alt="..."
+      />
+
+      <div class="card-body"style=" background:rgba(27,26,38,0.3); font-family: 'Times New Roman', Times, serif;">
+        <h3 class="card-title" style="color: silver; background: rgba(27,26,38,0.3);">{{ car.brandName }}</h3>
+
+        <ul class="list-group list-group-flush" style="color: silver; background: rgba(0, 0, 0, 0.3);">
+          <li class="list-group-item" style="color: silver; background: rgba(27,26,38,0.3);">Model Name: {{ car.modelName }}</li>
+          <li class="list-group-item" style="color: silver; background: rgba(27,26,38,0.3);">Model Year: {{ car.modelYear }}</li>
+          <li class="list-group-item" style="color: silver; background: rgba(27,26,38,0.3);">Color Name: {{ car.colorName }}</li>
+          <li class="list-group-item" style="color: silver; background: rgba(27,26,38,0.3);">Daily Price: {{ car.dailyPrice }}</li>
+          <li class="list-group-item" style="color: silver; background: rgba(27,26,38,0.3);">Description: {{ car.description }}</li>
+        </ul>
+      </div>
+      <div class="card-body" style="background: rgba(27,26,38,0.3); font-family: 'Times New Roman', Times, serif;">
+        <div class="row"style="background: rgba(27,26,38,0.3);">
+          <button
+            type="button"
+            style="color:silver; background: rgba(27,26,38,0.3);"
+            class="btn btn-outline-dark"
+            routerLink="/cars/carDetails/{{car.carId }}"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
